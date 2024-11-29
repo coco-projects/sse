@@ -9,16 +9,16 @@
 
     SSE::init($processor);
 
-//    $updateEvent = SSE::getEventIns('update');
+    $updateEvent = SSE::getEventIns('update');
 
-    $len = 10;
+    $len = 50;
 
     for ($i = 0; $i < $len; $i++)
     {
-        SSE::getEventIns('update')->send(json_encode([
+        $updateEvent->send(json_encode([
             "id"   => $i,
             "data" => "data-" . $i,
         ]));
 
-        sleep(1);
+        usleep(1000 * 100);
     }
