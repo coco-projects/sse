@@ -22,3 +22,7 @@
 
         usleep(1000 * 100);
     }
+
+    SSE::getEventIns('close')->send(json_encode([
+        "status" => "closed",
+    ],256));

@@ -30,6 +30,15 @@
                 console.dir(event);
             });
 
+            // 监听关闭事件
+            eventSource.addEventListener("close", function (event) {
+                // console.log("SSE connection closed:", event.data);
+
+                // 关闭当前的 EventSource 连接
+                eventSource.close();
+
+            });
+
             // 关闭连接
             setTimeout(function () {
                 eventSource.close();
